@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/menu_aboutus"
+        android:title="About Us" />
+    <item
+        android:id="@+id/menu_contactUs"
+        android:title="Contact Us" />
+    <item
+        android:id="@+id/menu_profile"
+        android:title="Profile" />
+    <item
+        android:id="@+id/menu_settings"
+        android:title="Settings"
+        app:showAsAction="ifRoom"
+        android:tooltipText="Settings"
+        android:icon="@drawable/settings_icon"
+        />
+    <item
+        android:id="@+id/menu_logout"
+        android:title="Logout"
+        app:showAsAction="ifRoom"
+        android:tooltipText="Logout"
+        android:icon="@drawable/logout_icon"
+        />
+    <item
+        android:id="@+id/menu_more"
+        android:title="More"
+        >
+        <menu>
+            <item
+                android:id="@+id/menu_more_settings"
+                android:title="Settings"
+                />
+        </menu>
+    </item>
+</menu>

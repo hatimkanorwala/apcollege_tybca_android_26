@@ -48,4 +48,16 @@
         android:padding="10dp"
         android:layout_margin="10dp"
         />
+    <TextView
+        android:id="@+id/main_tv_newUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New User? Register Here"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:textStyle="bold|italic"
+        android:onClick="redirectToRegistration"
+        />
 </LinearLayout>
