@@ -6,6 +6,5 @@
         <item name="colorPrimary">@android:color/holo_red_dark</item>
     </style>
 
-    <style name="fullScreen" parent="Theme.Material3.DayNight.NoActionBar">
-    </style>
+    <style name="fullScreen" parent="Theme.Material3.DayNight.NoActionBar"></style>
 </resources>

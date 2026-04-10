@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".newRegistration">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/newregistration_etl_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/newregistration_et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterUsername"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/newregistration_etl_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:layout_below="@id/newregistration_etl_username"
+        app:passwordToggleEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/newregistration_et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterPassword"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/newregistration_etl_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:layout_below="@id/newregistration_etl_password">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/newregistration_et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterEmail"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/newregistration_etl_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        app:counterMaxLength="10"
+        app:counterEnabled="true"
+        android:layout_below="@id/newregistration_etl_email">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/newregistration_et_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterContact"
+            android:maxLength="10"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/newregistration_btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newregistration_etl_contact"
+        android:layout_centerInParent="true"
+        android:text="Submit"
+        android:onClick="NewregisterData"
+        />
+    <TextView
+        android:id="@+id/newregistration_tv_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newregistration_btn_submit"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        />
+
+</RelativeLayout>
