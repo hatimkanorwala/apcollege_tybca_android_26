@@ -30,6 +30,10 @@ public class SecondActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Home | From Code");
+            getSupportActionBar().setIcon(R.drawable.settings_icon);
+        }
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE);
 
         if(sharedPreferences.getAll().containsKey("isLoggedIn")){
