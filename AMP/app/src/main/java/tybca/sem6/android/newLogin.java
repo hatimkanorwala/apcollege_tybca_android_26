@@ -1,8 +1,10 @@
 package tybca.sem6.android;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +20,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import tybca.sem6.android.DB.UsersDB;
+
 public class newLogin extends AppCompatActivity {
     EditText _login_et_username,_login_et_password;
     Button _login_btn_login;
     TextView _login_tv_forgotPassword,_login_tv_newUser;
     String username,password;
+    UsersDB usersDB;
+    public static final String myPreference = "myPrefs";
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +46,15 @@ public class newLogin extends AppCompatActivity {
         _login_btn_login = findViewById(R.id.login_btn_login);
         _login_tv_forgotPassword = findViewById(R.id.login_tv_forgotPassword);
         _login_tv_newUser = findViewById(R.id.login_tv_newUser);
+        usersDB = new UsersDB(newLogin.this);
+        sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE);
+        if(sharedPreferences.getAll().containsKey("isLoggedIn")){
+            if(sharedPreferences.getAll().containsKey("username")){
+                Intent i = new Intent(newLogin.this,SecondActivity.class);
+                startActivity(i);
+                finish();
+            }
+        }
 
         _login_btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +73,28 @@ public class newLogin extends AppCompatActivity {
                     _login_et_password.setError("Password cannot be less than 8 characters");
                 }
                 else{
-
+                    Cursor cursor = usersDB.getUserData(username);
+                    if(cursor.getCount() == 0){
+                        Toast.makeText(newLogin.this, "Login Failed, Try Again!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        if(cursor.moveToFirst()){
+                                if(password.equals(cursor.getString(4))){
+                                    Toast.makeText(newLogin.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("username",username);
+                                    editor.putString("user_id",cursor.getString(0));
+                                    editor.putString("isLoggedIn","1");
+                                    editor.commit();
+                                    Intent i = new Intent(newLogin.this,SecondActivity.class);
+                                    startActivity(i);
+                                    finish();
+                                }
+                                else{
+                                    Toast.makeText(newLogin.this, "Username / Password Doesnot Match", Toast.LENGTH_SHORT).show();
+                                }
+                                }
+                    }
                 }
             }
         });
