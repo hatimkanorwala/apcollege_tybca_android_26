@@ -67,25 +67,54 @@ public class change_password extends AppCompatActivity {
                 String currentPassword = _chgpass_et_currPass.getText().toString().trim();
                 String newPassword = _chgpass_et_newPass.getText().toString().trim();
                 String confirmPassword = _chgpass_et_confirmPass.getText().toString().trim();
-
                 if(currentPassword.isEmpty()){
-
-                }
-                else if(newPassword.isEmpty()){
-
-                }
-                else if(newPassword.length() < 8){
-
-                }
-                else if(confirmPassword.isEmpty()){
-
-                }
-                else if(confirmPassword.length() < 8){
-
-                }
-                else if(newPassword != confirmPassword){
+                    _chgpass_etl_currPass.setError("Current Password cannot be empty");
+                    _chgpass_etl_currPass.requestFocus();
+                    return;
                 }
                 else{
+                    _chgpass_etl_currPass.setErrorEnabled(false);
+                }
+                if(newPassword.isEmpty()){
+                    _chgpass_etl_newPass.setError("New Password cannot be empty");
+                    _chgpass_etl_newPass.requestFocus();
+                    return;
+                }
+                else{
+                    _chgpass_etl_newPass.setErrorEnabled(false);
+                }
+                if(newPassword.length() < 8){
+                    _chgpass_etl_newPass.setError("Password cannot be less than 8 digits");
+                    _chgpass_etl_newPass.requestFocus();
+                    return;
+                }
+                else{
+                    _chgpass_etl_newPass.setErrorEnabled(false);
+                }
+                if(confirmPassword.isEmpty()){
+                    _chgpass_etl_confirmPass.setError("Confirm Password cannot be empty");
+                    _chgpass_etl_confirmPass.requestFocus();
+                    return;
+                }
+                else{
+                    _chgpass_etl_confirmPass.setErrorEnabled(false);
+                }
+                if(confirmPassword.length() < 8){
+                    _chgpass_etl_confirmPass.setError("Password cannot be less than 8 digits");
+                    _chgpass_etl_confirmPass.requestFocus();
+                    return;
+                }
+                else{
+                    _chgpass_etl_confirmPass.setErrorEnabled(false);
+                }
+                if(!newPassword.equals(confirmPassword)){
+                    _chgpass_etl_confirmPass.setError("New Password and Confirm Password doesnot match");
+                    _chgpass_etl_confirmPass.requestFocus();
+                    return;
+                }
+                else{
+                    _chgpass_etl_confirmPass.setErrorEnabled(false);
+                }
                     //Check if Password Matches the current Password
                     Cursor cursor  = usersDB.getUserData(sharedPreferences.getString("username",""));
                     if(cursor.getCount() == 0){
@@ -97,7 +126,7 @@ public class change_password extends AppCompatActivity {
                                 if(newPassword.equals(confirmPassword)){
                                     boolean result = usersDB.updateUserPassword(Integer.valueOf(sharedPreferences.getString("user_id","")),newPassword);
                                     if(result){
-                                        Toast.makeText(change_password.this, "Password Updated Successfully", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(change_password.this, "Password Updated Successfully, Logging you out!", Toast.LENGTH_SHORT).show();
                                         logout();
                                     }
                                     else{
@@ -111,8 +140,6 @@ public class change_password extends AppCompatActivity {
                             }
                         }
                     }
-
-                }
             }
         });
     }

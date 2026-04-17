@@ -20,7 +20,7 @@ public class UsersDB extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table "+table_name+"("+col_id+" int primary key autoincrement,"+col_username+" " +
+        sqLiteDatabase.execSQL("create table "+table_name+"("+col_id+" INTEGER primary key autoincrement,"+col_username+" " +
                 "varchar(50),"+col_email+" varchar(100),"+col_phone+" varchar(12),"+col_password+" TEXT,"+col_updated_at+" " +
                 "datetime DEFAULT CURRENT_TIMESTAMP )");
     }

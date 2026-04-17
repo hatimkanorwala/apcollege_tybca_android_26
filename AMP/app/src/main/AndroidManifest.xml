@@ -13,11 +13,15 @@
         android:theme="@style/Theme.AP_TYBCA_SEM6">
         <activity
             android:name=".change_password"
-            android:exported="false"
-            android:theme="@style/Theme.AP_TYBCA_SEM6" />
+            android:exported="true"
+            android:label="Change Password"
+            android:theme="@style/Base.Theme.AP_TYBCA_SEM6"
+             />
         <activity
             android:name=".profile"
-            android:exported="false" />
+            android:exported="true"
+            android:label="Profile"
+            android:theme="@style/Base.Theme.AP_TYBCA_SEM6" />
         <activity
             android:name=".newRegistration"
             android:exported="true"
@@ -28,7 +32,6 @@
             android:theme="@style/fullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

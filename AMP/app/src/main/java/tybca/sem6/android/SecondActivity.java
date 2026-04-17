@@ -81,7 +81,13 @@ public class SecondActivity extends AppCompatActivity {
 
         }
         else if(item_id == R.id.menu_profile){
-
+            Intent i = new Intent(SecondActivity.this, profile.class);
+            startActivity(i);
+        }
+        //Added New for change password
+        else if(item_id == R.id.menu_changePassword){
+            Intent i = new Intent(SecondActivity.this, change_password.class);
+            startActivity(i);
         }
         else if(item_id == R.id.menu_settings){
 
