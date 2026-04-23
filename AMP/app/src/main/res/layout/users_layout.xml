@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/usersLayout_rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:id="@+id/usersLayout_ll_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@drawable/user_background"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            >
+            <ImageView
+                android:id="@+id/usersLayout_iv_userImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/edit_icon"
+                />
+            <LinearLayout
+                android:id="@+id/usersLayout_ll_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                >
+                <TextView
+                    android:id="@+id/usersLayout_tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username: "
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="3dp"
+                    android:background="@color/black"
+                    />
+                <TextView
+                    android:id="@+id/usersLayout_tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email: "
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="3dp"
+                    android:background="@color/black"
+                    />
+                <TextView
+                    android:id="@+id/usersLayout_tv_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact: "
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="3dp"
+                    android:background="@color/black"
+                    />
+                <Button
+                    android:id="@+id/usersLayout_btn_viewMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View More"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>
